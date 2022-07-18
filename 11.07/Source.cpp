@@ -3,32 +3,29 @@
 #include<array>
 #include<string>
 #include<set>
+#include "Source.h"
 
 using namespace std;
-//class User {
-//	int id;
-//	std::string name;
-//	User() = delete;
-//	
-//public:
-//	explicit User(int num,std::string name):id(num),name(name) {}
-//	
-//};
+
 class Car {
 public:
 	virtual int get_weight() = 0;
 	virtual int get_price() = 0;
 	virtual void set_weight() = 0;
 	virtual void set_price() = 0;
+	virtual void add_car() = 0;
 	
 	
 
+
 };
-class Lite_car :public Car {
+class mini_car  {
 public:
-	Lite_car(int weight,int price) {
+	mini_car(int weight,int price) {
 		this->weight = weight;
 		this->price = price;
+		int static num = 0;
+		num+= weight;
 	}
 
 	int get_weight()const{
@@ -44,13 +41,32 @@ public:
 		 this->price= price;
 	} 
 
-	 int all_weight_lite() {
+	 //void all_weight_lite_1() {
 
-		 vector<Lite_car>mass;
-		 mass.emplace_back(get_weight());
-		 return;
-	 }
+		// vector<mini_car>mass;
+		// mass.emplace_back(get_weight());
+		// 
+	 //}
+	 //void all_price_lite_1() {
+		// vector<mini_car>mass;
+		// mass.emplace_back(get_weight());
+
+		// 
+	 //}
 	 
+	/*int qwe(mini_car& other) {
+		 vector<int>tmp_p;
+		 tmp_p.emplace_back(other.price);
+		 int a;
+		 for (auto el : tmp_p) {
+			 a += el;
+		 }
+		 return a;
+	 }
+	 */
+
+	 
+
 	 
 	 
 private:
@@ -59,66 +75,51 @@ private:
 
 };
 
-class Big_car :public Car {
-public:
-	int get_weight()const {
-		return weight_;
-	}
-	int get_price()const {
-		return price_;
-	}
-	void set_weight(int weight) {
-		weight_ = weight;
-	}
-	void set_price(int price) {
-		price_ = price;
-	}
-	void a() {
-		vector<Car*>data;
-		data.emplace_back(get_weight());
-
-	}
-	
-	
-	
-
-private:
-	int weight_;
-	int price_;
 
 
-};
+//class Big_car {
+//public:
+//	int get_weight()const {
+//		return weight_;
+//	}
+//	int get_price()const {
+//		return price_;
+//	}
+//	void set_weight(int weight) {
+//		weight_ = weight;
+//	}
+//	void set_price(int price) {
+//		price_ = price;
+//	}
+//	void add_car() {
+//		vector<Car*>data;
+//		data.emplace_back(get_price());
+//
+//	}
+//
+//
+//
+//private:
+//	int weight_;
+//	int price_;
+//
+//
+//};
 
 
 int main() {
 	using namespace std;
 	system("chcp 1251>null");
-	/*int a;
-	float f;
-	__int16 shor;
-	vector<float>coll;
-	array<int, 5>coll2;*/
-	/*vector<User>coll3;
-	for (int i = 0; i < 10000; i++)
-	{
-		coll3.emplace_back(i,"long name for example");
-		                   
+	mini_car car1(2000, 700);
+	mini_car car2(2002, 200);
+	mini_car car3(2003, 100);
+	vector<int>a;
+	a.reserve(5);
+	a.emplace_back(car1.get_price(), car2.get_price(), car3.get_price());
+	for (auto el : a) {
+		cout<<el;
 	}
-	vector<User>coll4;
-	for (int i = 0; i < 10000; i++)
-	{
-		coll4.push_back(User(i, "long name for example"));
-
-	}
-	set<int>set;
-	auto itbeg = set.begin();
-	auto itend = set.end();
 	
-	 
-	vector<Car>data;*/
-
-
-
 
 
 
